@@ -1,4 +1,3 @@
-# %% [code] {"execution":{"iopub.status.busy":"2021-08-14T07:58:57.746374Z","iopub.execute_input":"2021-08-14T07:58:57.746761Z","iopub.status.idle":"2021-08-14T07:59:02.233333Z","shell.execute_reply.started":"2021-08-14T07:58:57.74673Z","shell.execute_reply":"2021-08-14T07:59:02.232344Z"}}
 class Fbprophet(object):
     def fit(self,data):
         
