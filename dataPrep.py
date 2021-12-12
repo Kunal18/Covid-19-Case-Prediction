@@ -51,3 +51,30 @@ fig.update_geos(fitbounds="locations", visible=False)
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 fig.show()
 
+count = []
+for i in range(1,len(df0)):
+    count.append(sum(pd.to_numeric(df0.iloc[i,1:].values)))
+
+df = pd.DataFrame()
+df["Date"] = df0["Country/Region"][1:]
+df["Cases"] = count
+df=df.set_index("Date")
+
+count = []
+for i in range(1,len(df1)):
+    count.append(sum(pd.to_numeric(df1.iloc[i,1:].values)))
+
+df["Deaths"] = count
+
+df.Cases.plot(title="Daily Covid19 Cases in World",marker=".",figsize=(10,5),label="daily cases")
+df.Cases.rolling(window=5).mean().plot(figsize=(10,5),label="MA5")
+plt.ylabel("Cases")
+plt.legend()
+plt.show()
+
+df.Deaths.plot(title="Daily Covid19 Deaths in World",marker=".",figsize=(10,5),label="daily deaths")
+df.Deaths.rolling(window=5).mean().plot(figsize=(10,5),label="MA5")
+plt.ylabel("Deaths")
+plt.legend()
+plt.show()
+
